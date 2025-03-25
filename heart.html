@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f5f5f5; }
+        .container { max-width: 600px; margin-top: 30px; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); }
+        .order-card { border: 1px solid #ddd; padding: 15px; margin-bottom: 15px; border-radius: 5px; background-color: #f9f9f9; position: relative; }
+        .order-card img { max-width: 80px; border-radius: 5px; }
+        .cancel-btn { position: absolute; top: 10px; right: 10px; }
+        .summary { background: #e3f2fd; padding: 15px; border-radius: 5px; font-size: 16px; font-weight: bold; }
+        .back-btn { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3 class="text-center">Your Order Summary</h3>
+
+        <div class="order-details">
+            <!-- এখানে সব অর্ডার লিস্ট হবে -->
+        </div>
+
+        <div class="summary">
+            <p>Total Items: <span id="total-items">0</span></p>
+            <p>Total Price: <span id="total-price">0</span> Tk</p>
+            <p>Total Delivery Fee: <span id="total-delivery">0</span> Tk</p>
+            <p><strong>Grand Total:</strong> <span id="grand-total">0</span> Tk</p>
+        </div>
+
+        <button class="btn btn-secondary back-btn w-100" onclick="goBack()">Back</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            showOrders();
+        });
+
+        function showOrders() {
+            let confirmedOrders = JSON.parse(localStorage.getItem("confirmedOrders")) || [];
+            let orderDetailsContainer = document.querySelector('.order-details');
+
+            let totalItems = 0;
+            let totalPrice = 0;
+            let totalDeliveryFee = 0;
+            let grandTotal = 0;
+            orderDetailsContainer.innerHTML = ""; // পুরনো কন্টেন্ট মুছে নতুনভাবে লোড করবে
+
+            if (confirmedOrders.length > 0) {
+                confirmedOrders.forEach((order, index) => {
+                    if (!order.product || !order.product.name) return;
+
+                    let productTotalPrice = order.product.price * order.product.quantity;
+                    let deliveryFee = parseFloat(order.product.delivery);
+                    let totalOrderPrice = productTotalPrice + deliveryFee;
+
+                    totalItems += 1;
+                    totalPrice += productTotalPrice;
+                    totalDeliveryFee += deliveryFee;
+                    grandTotal += totalOrderPrice;
+
+                    let orderCard = document.createElement("div");
+                    orderCard.classList.add("order-card");
+                    orderCard.innerHTML = `
+                        <button class="btn btn-danger btn-sm cancel-btn" onclick="confirmCancel(${index}, this)">Cancel</button>
+                        <h4>${order.product.name}</h4>
+                        <img src="${order.product.image}" class="img-fluid">
+                        <p><strong>Size:</strong> ${order.product.size}</p>
+                        <p><strong>Color:</strong> ${order.product.color}</p>
+                        <p><strong>Quantity:</strong> ${order.product.quantity}</p>
+                        <p><strong>Price:</strong> ${productTotalPrice.toFixed(2)} Tk</p>
+                        <p><strong>Delivery Fee:</strong> ${deliveryFee.toFixed(2)} Tk</p>
+                    `;
+                    orderDetailsContainer.appendChild(orderCard);
+                });
+            } else {
+                orderDetailsContainer.innerHTML = '<p class="text-center text-danger">No orders found.</p>';
+            }
+
+            updateSummary(totalItems, totalPrice, totalDeliveryFee, grandTotal);
+        }
+
+        function confirmCancel(index, button) {
+            let confirmation = confirm("Are you sure you want to cancel this product?");
+            if (confirmation) {
+                cancelProduct(index, button);
+            }
+        }
+
+        function cancelProduct(index, button) {
+            let confirmedOrders = JSON.parse(localStorage.getItem("confirmedOrders")) || [];
+
+            if (confirmedOrders.length > 0) {
+                confirmedOrders.splice(index, 1);
+                localStorage.setItem("confirmedOrders", JSON.stringify(confirmedOrders));
+
+                // **সরাসরি UI থেকে অর্ডার মুছে ফেলা**  
+                let orderCard = button.closest(".order-card");
+                if (orderCard) {
+                    orderCard.remove();
+                }
+
+                // **সারাংশ আপডেট করা (Total Items, Total Price, Delivery Fee, Grand Total)**
+                showOrders();
+            }
+        }
+
+        function updateSummary(totalItems, totalPrice, totalDeliveryFee, grandTotal) {
+            document.getElementById("total-items").textContent = totalItems;
+            document.getElementById("total-price").textContent = totalPrice.toFixed(2);
+            document.getElementById("total-delivery").textContent = totalDeliveryFee.toFixed(2);
+            document.getElementById("grand-total").textContent = grandTotal.toFixed(2);
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

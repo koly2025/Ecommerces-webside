@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .container { margin-top: 30px; }
+        .img-thumbnail { width: 80px; height: 80px; cursor: pointer; margin: 5px; }
+        .cart-btn, .order-btn { width: 150px; }
+        .notification { position: absolute; top: 10px; right: 10px; background: red; color: white; padding: 2px 6px; border-radius: 50%; display: none; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); }
+        .modal-content { background: white; padding: 20px; margin: 10% auto; width: 50%; }
+        .close-btn { cursor: pointer; float: right; font-size: 20px; }
+        .order-input { width: 100%; margin-bottom: 10px; }
+        .main-image { width: 100%; max-height: 400px; object-fit: contain; }
+        .thumbnail-container { display: flex; margin-top: 10px; }
+        .thumbnail-container img { width: 80px; height: 80px; margin-right: 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(67 0 86);"> <!-- Change navbar background color -->
+        <div class="container">
+          <!-- Product Name on the left -->
+          <a class="navbar-brand" href="#" style="color: white;">My Store</a> <!-- Change product name color -->
+      
+          <!-- Navbar Toggler (for mobile view) -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <!-- Right-side Navbar with Cart and Heart Icons -->
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <!-- Cart Icon with notification -->
+                <a class="nav-link" href="cart.html">
+                  <button type="button" class="btn position-relative" id="cartNotificationBtn">
+                    <i class="btn btn-light" style="color: #f39c12;">C</i> <!-- Change cart icon color -->
+                    <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge bg-danger">0</span> <!-- Change badge color -->
+                  </button>
+                </a>
+              </li>
+              <li class="nav-item">
+                <!-- Heart Icon with notification -->
+                <a class="nav-link" href="heart.html">
+                  <button type="button" class="btn position-relative" id="heartNotificationBtn">
+                    <i class="btn btn-light" style="color: #e74c3c;">O</i> <!-- Change heart icon color -->
+                    <span id="heartCount" class="position-absolute top-0 start-100 translate-middle badge bg-danger">0</span> <!-- Change badge color -->
+                  </button>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      
+      
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img id="main-image" src="./images/1728622129_L_1.jpg" class="img-fluid main-image" alt="Product Image">
+                <div class="thumbnail-container">
+                    <img src="./images/1728622091_S_15.jpg" class="img-thumbnail" onclick="changeImage(this)">
+                    <img src="./images/1728622091_S_14.jpg" class="img-thumbnail" onclick="changeImage(this)">
+                    <img src="./images/1728622091_S_12.jpg" class="img-thumbnail" onclick="changeImage(this)">
+                    <img src="./images/1728622090_S_6.jpg" class="img-thumbnail" onclick="changeImage(this)">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h3 id="product-name">Cotton full Sleeve Check Shirt</h3>
+                <!-- Product Description -->
+                <div class="product-description">
+                    <p><strong>Description:</strong></p>
+                    <p>Fabrics: Magnet Cotton
+                        (Customized Fabrics)
+                        Double Youk
+                        Accurate Size Measurement
+                        Export Quality Swing
+                        Color and quality guarantee
+                        Comfortable for every season
+                        China Show Button
+                        Slim Fit
+                        Picture Captured by self phone
+                        s : (Chest-40 inch, Length-28 inch)
+                        m : (Chest-42 inch, Length-29 inch)
+                        L : (Chest-44 inch, Length-30 inch)
+                </div>
+                <p>Price: <span id="price">800</span>/-Tk</p>
+                <p>Size: <select id="size" class="form-select">
+                        <option>s</option>
+                        <option>M</option>
+                        <option>L</option>
+                    </select>
+                </p>
+                <p>Color: <select id="color" class="form-select">
+                        <option>Red</option>
+                        <option>Blue</option>
+                        <option>Green</option>
+                    </select>
+                </p>
+                <p>Quantity: <input type="number" id="quantity" value="1" min="1" class="form-control"></p>
+                <p>Delivery Fee: <select id="delivery" class="form-select">
+                        <option value="150">Dhaka (150/-Tk)</option>
+                        <option value="80">Outside Dhaka (80/-Tk)</option>
+                    </select>
+                </p>
+                <button class="btn btn-primary cart-btn" onclick="addToCart()">Add to Cart</button>
+                <button class="btn btn-success order-btn" onclick="openOrderForm()">Order Now</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Order Form Modal -->
+    <div id="order-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeOrderForm()">&times;</span>
+            <h4>Confirm Your Order</h4>
+            <img id="order-image" src="./images/1728622129_L_1.jpg" class="img-fluid" width="100">
+            <p><strong>Product:</strong> <span id="order-product"></span></p>
+            <p><strong>Size:</strong> <span id="order-size"></span></p>
+            <p><strong>Color:</strong> <span id="order-color"></span></p>
+            <p><strong>Quantity:</strong> <span id="order-quantity"></span></p>
+            <p><strong>Delivery Fee:</strong> <span id="order-delivery"></span> Tk</p>
+            <p><strong>Total:</strong> <span id="order-total"></span> Tk</p>
+            <input type="text" id="customer-name" class="form-control order-input" placeholder="Enter your name">
+            <input type="text" id="customer-address" class="form-control order-input" placeholder="Enter your full address">
+            <input type="text" id="customer-phone" class="form-control order-input" placeholder="Enter your mobile number">
+            <button class="btn btn-danger" onclick="confirmOrder()">Confirm Order</button>
+        </div>
+    </div>
+
+    <!-- Order Details Form -->
+    <div id="order-details" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h4>Your Order</h4>
+            <img id="order-details-image" src="./images/1728622129_L_1.jpg" class="img-fluid" width="100">
+            <p><strong>Product:</strong> <span id="order-details-product"></span></p>
+            <p><strong>Size:</strong> <span id="order-details-size"></span></p>
+            <p><strong>Color:</strong> <span id="order-details-color"></span></p>
+            <p><strong>Quantity:</strong> <span id="order-details-quantity"></span></p>
+            <p><strong>Delivery Fee:</strong> <span id="order-details-delivery"></span> Tk</p>
+            <p><strong>Total:</strong> <span id="order-details-total"></span> Tk</p>
+            <button class="btn btn-danger" onclick="removeOrder()">Remove Order</button>
+            <button class="btn btn-secondary" onclick="closeOrderDetails()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        let cartCount = 0;
+        let orderCount = 0;
+
+        function changeImage(img) { 
+            document.getElementById('main-image').src = img.src; 
+            document.getElementById('order-image').src = img.src;
+        }
+
+        function addToCart() {
+            let product = {
+                name: document.getElementById('product-name').innerText,
+                price: document.getElementById('price').innerText,
+                image: document.getElementById('main-image').src,
+                size: document.getElementById('size').value,
+                color: document.getElementById('color').value,
+                quantity: document.getElementById('quantity').value,
+                delivery: document.getElementById('delivery').value
+            };
+            localStorage.setItem("cart", JSON.stringify(product));
+            cartCount++;
+            document.getElementById('cartCount').innerText = cartCount;
+            alert("Product added to cart!");
+        }
+        
+
+        function openOrderForm() {
+            let product = {
+                name: document.getElementById('product-name').innerText,
+                size: document.getElementById('size').value,
+                color: document.getElementById('color').value,
+                quantity: document.getElementById('quantity').value,
+                delivery: document.getElementById('delivery').value,
+                price: document.getElementById('price').innerText
+            };
+
+            document.getElementById("order-product").innerText = product.name;
+            document.getElementById("order-size").innerText = product.size;
+            document.getElementById("order-color").innerText = product.color;
+            document.getElementById("order-quantity").innerText = product.quantity;
+            document.getElementById("order-delivery").innerText = product.delivery;
+            let total = (product.price * product.quantity) + parseFloat(product.delivery);
+            document.getElementById("order-total").innerText = total.toFixed(2);
+            document.getElementById("order-modal").style.display = "block";
+        }
+
+        function closeOrderForm() {
+            document.getElementById("order-modal").style.display = "none";
+        }
+
+        function confirmOrder() {
+            if (document.getElementById("customer-name").value === "" || document.getElementById("customer-address").value === "" || document.getElementById("customer-phone").value === "") {
+                alert("Please fill all fields before confirming.");
+                return;
+            }
+            orderCount++;
+            document.getElementById('heartCount').innerText = orderCount;
+            alert("Order confirmed!");
+            document.getElementById("order-modal").style.display = "none";
+        }
+
+        function openOrderDetails() {
+            // Show the order details form
+            let order = JSON.parse(localStorage.getItem("cart"));
+            document.getElementById("order-details-image").src = order.image;
+            document.getElementById("order-details-product").innerText = order.name;
+            document.getElementById("order-details-size").innerText = order.size;
+            document.getElementById("order-details-color").innerText = order.color;
+            document.getElementById("order-details-quantity").innerText = order.quantity;
+            document.getElementById("order-details-delivery").innerText = order.delivery;
+            document.getElementById("order-details-total").innerText = (order.price * order.quantity + parseFloat(order.delivery)).toFixed(2);
+            document.getElementById("order-details").style.display = "block";
+        }
+
+        function closeOrderDetails() {
+            document.getElementById("order-details").style.display = "none";
+        }
+        
+
+        function removeOrder() {
+            localStorage.removeItem("cart");
+            orderCount--;
+            document.getElementById('heartCount').innerText = orderCount;
+            document.getElementById("order-details").style.display = "none";
+            alert("Order has been canceled.");
+        }
+       
+        function addToCart() {
+    // Collect product details
+    let product = {
+        name: document.getElementById('product-name').innerText,
+        price: document.getElementById('price').innerText,
+        image: document.getElementById('main-image').src,
+        size: document.getElementById('size').value,
+        color: document.getElementById('color').value,
+        quantity: document.getElementById('quantity').value,
+        delivery: document.getElementById('delivery').value
+    };
+    
+    // Check if the cart already exists in localStorage
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    
+    // Add the new product to the cart array
+    cart.push(product);
+    
+    // Save the updated cart back to localStorage
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    // Update the cart count in the navbar
+    cartCount = cart.length;
+    document.getElementById('cartCount').innerText = cartCount;
+
+    alert("Product added to cart!");
+}
+function addToCart() {
+    // প্রোডাক্টের তথ্য সংগ্রহ করুন
+    let product = {
+        name: document.getElementById('product-name').innerText,
+        price: document.getElementById('price').innerText,
+        image: document.getElementById('main-image').src,
+        size: document.getElementById('size').value,
+        color: document.getElementById('color').value,
+        quantity: document.getElementById('quantity').value,
+        delivery: document.getElementById('delivery').value
+    };
+    
+    // চেক করুন cart ইতিমধ্যে localStorage এ আছে কিনা
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // নতুন প্রোডাক্ট cart এ যোগ করুন
+    cart.push(product);
+    
+    // আপডেট করা cart আবার localStorage এ সংরক্ষণ করুন
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    // cart count আপডেট করুন
+    cartCount = cart.length;
+    document.getElementById('cartCount').innerText = cartCount;
+
+    alert("Product has been added to the cart!");
+}
+function confirmOrder() {
+    if (document.getElementById("customer-name").value === "" || document.getElementById("customer-address").value === "" || document.getElementById("customer-phone").value === "") {
+        alert("Please fill all fields before confirming.");
+        return;
+    }
+
+    let order = {
+        name: document.getElementById("customer-name").value,
+        address: document.getElementById("customer-address").value,
+        phone: document.getElementById("customer-phone").value,
+        product: {
+            name: document.getElementById("product-name").innerText,
+            size: document.getElementById("size").value,
+            color: document.getElementById("color").value,
+            quantity: document.getElementById("quantity").value,
+            price: document.getElementById("price").innerText,
+            image: document.getElementById("main-image").src,
+            delivery: document.getElementById("delivery").value
+        }
+    };
+
+    let confirmedOrders = JSON.parse(localStorage.getItem("confirmedOrders")) || [];
+    confirmedOrders.push(order);
+
+    // Save confirmed orders to localStorage
+    localStorage.setItem("confirmedOrders", JSON.stringify(confirmedOrders));
+    
+    // Increment order count and update heart icon
+    orderCount++;
+    document.getElementById('heartCount').innerText = orderCount;
+
+    alert("Order confirmed!");
+    document.getElementById("order-modal").style.display = "none";
+}
+
+    </script>
+</body>
+</html>

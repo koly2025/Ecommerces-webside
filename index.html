@@ -1,0 +1,674 @@
+<!-- HTML ডকুমেন্টের ডকটাইপ ডিফাইন -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ওয়েবসাইটের ক্যারেক্টার সেট নির্ধারণ -->
+    <meta charset="UTF-8">
+    <!-- ইন্টারনেট এক্সপ্লোরারের জন্য কম্প্যাটিবিলিটি মোড নির্ধারণ -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- ওয়েবসাইটের রেসপন্সিভ ডিজাইন সক্রিয় -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ওয়েবসাইটের টাইটেল -->
+    <title>Electronic Shop</title>
+    <!-- বাহ্যিক CSS ফাইল লিংক করা -->
+    <link rel="stylesheet" href="style.css">
+    <!-- ফন্ট-অসাম আইকন যুক্ত করা -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <!-- Bootstrap সিএসএস লিংক করা -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+    <!-- Google ফন্ট সংযুক্ত করা -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/brands.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+
+<body>
+    <!-- উপরের নেভবার শুরু -->
+    <div class="top-navbar">
+        <p>WELCOME TO OUR SHOP</p>
+        <div class="icons">
+            <!-- লগইন লিংক -->
+            <a href="login.html"><img src="./images/register.png" alt="" width="18px">Login</a>
+            <!-- রেজিস্ট্রেশন লিংক -->
+            <a href="register.html"><img src="./images/register.png" alt="" width="18px">Register</a>
+        </div>
+    </div>
+    <!-- উপরের নেভবার শেষ -->
+
+    <!-- মূল নেভিগেশন বার শুরু -->
+<nav class="navbar navbar-expand-lg" id="navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html" id="logo"><span id="span1">K</span>oly's <span>Shop</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span><img src="./images/menu.png" alt="" width="30px"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="bennar.html">Bennar</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Category</a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color: rgb(67 0 86);">
+            <li><a class="dropdown-item" href="item.html">Clothing Items</a></li>
+            <li><a class="dropdown-item" href="juwelry.html">Jewelry & Accessories</a></li>
+            <li><a class="dropdown-item" href=".html">Winter Collection</a></li>
+            <li><a class="dropdown-item" href=".html">Bag Collection</a></li>
+            <li><a class="dropdown-item" href=".html">Kids' Items</a></li>
+            <li><a class="dropdown-item" href=".html">Electronics Items</a></li>
+            <li><a class="dropdown-item" href=".html">Toys</a></li>
+            <li><a class="dropdown-item" href=".html">Home & Decor</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+
+      <!-- সার্চ ফর্ম -->
+      <form class="d-flex" id="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+
+      <!-- Cart Notification -->
+      <a href="cart.html">
+        <button type="button" class="btn position-relative">
+          <i class="btn btn-light">C</i>
+          <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge bg-primary">0</span>
+
+        </button>
+      </a>
+
+      <!-- Heart Notification -->
+      <a href="heart.html">
+        <button type="button" class="btn position-relative">
+          <i class="btn btn-light">O</i>
+          <span id="heartCount" class="position-absolute top-0 start-100 translate-middle badge bg-primary">0</span>
+        </button>
+      </a>
+    </div>
+  </div>
+</nav>
+<!-- মূল নেভিগেশন বার শেষ -->
+
+
+    <!-- হোম সেকশন শুরু -->
+<section class="home">
+  <div class="content">
+    <!-- শিরোনাম -->
+    <h1> <span>Clothing Products</span>
+      <br>
+      Up To <span id="span2">50%</span> Off
+    </h1>
+    <!-- বিবরণ -->
+    <p> Get your favorite clothing items at **HALF PRICE!
+      <br>** Don't miss this **limited-time offer** on trendy fashion.
+    </p>
+    <!-- শপ নাউ বোতাম -->
+    <div class="btn"><button>Shop Now</button></div>
+  </div>
+  <div class="img">
+    <!-- ব্যাকগ্রাউন্ড ছবি -->
+    <img src="./images/banner 1.png" alt="">
+  </div>
+</section>
+<!-- হোম সেকশন শেষ -->
+
+
+<!-- পণ্য কার্ড সেকশন -->
+<section class="product">
+<div class="container" id="product-cards">
+  <!-- পণ্য শিরোনাম -->
+  <h1 class="text-center">Clothing Items</h1>
+  <div class="row" style="margin-top: 15px; display: flex; justify-content: center; gap: 5;">
+    <!-- 1 পণ্য -->
+      <div class="col-md-2 py-1 md-0">
+      <div class="card product-card">
+        <a href="shart.html"><img src="./images/stailish-shart.png" alt=""></a>
+        <div class="card-body">
+          <h6 class="text-center">Stailish Shart</h6>
+          <div class="star text-center">
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <div class="btn"><button>Shop Now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 2পণ্য -->
+    <div class="col-md-2 py-1 md-0">
+      <div class="card product-card">
+        <a href="Panjabi.html"><img src="./images/panjabi.jpg" alt=""></a>
+        <div class="card-body">
+          <h6 class="text-center">Panjabi</h6>
+          <div class="star text-center">
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <div class="btn"><button>Shop Now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 3 পণ্য -->
+    <div class="col-md-2 py-1 md-0">
+      <div class="card product-card">
+        <a href="shart.html"><img src="./images/polo.png" alt=""></a>
+        <div class="card-body">
+          <h6 class="text-center">Polo-T-Shart</h6>
+          <div class="star text-center">
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <div class="btn"><button>Shop Now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 4 পণ্য -->
+    <div class="col-md-2 py-1 md-0">
+      <div class="card product-card">
+        <a href="shart.html"><img src="./images/huddi (2).jpg" alt=""></a>
+        <div class="card-body">
+          <h6 class="text-center"> Stailish Hudi</h6>
+          <div class="star text-center">
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <div class="btn"><button>Shop Now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--6 পণ্য -->
+    <div class="col-md-2 py-1 md-0">
+      <div class="card product-card">
+        <a href="shart.html"><img src="./images/t shart.png" alt=""></a>
+        <div class="card-body">
+          <h6 class="text-center">T-Shirt</h6>
+          <div class="star text-center">
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <div class="btn"><button>Shop Now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 8 পণ্য -->
+    <div class="col-md-2 py-1 md-0">
+      <div class="card product-card">
+        <a href="shart.html"><img src="./images/ledis t-shart.png" alt=""></a>
+        <div class="card-body">
+          <h6 class="text-center">Ledis-t-Shart</h6>
+          <div class="star text-center">
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <div class="btn"><button>Shop Now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 9 পণ্য -->
+    <div class="col-md-2 py-1 md-0">
+      <div class="card product-card">
+        <a href="shart.html"><img src="./images/readymate tree pis.png" alt=""></a>
+        <div class="card-body">
+          <h6 class="text-center">Ready Dress</h6>
+          <div class="star text-center">
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <div class="btn"><button>Shop Now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--10পণ্য -->
+    <div class="col-md-2 py-1 md-0">
+      <div class="card product-card">
+        <a href="shart.html"><img src="./images/saree.jpg" alt=""></a>
+        <div class="card-body">
+          <h6 class="text-center">Sharee</h6>
+          <div class="star text-center">
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <div class="btn"><button>Shop Now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 11 পণ্য -->
+    <div class="col-md-2 py-1 md-0">
+      <div class="card product-card">
+        <a href="shart.html"><img src="./images/2pis.jpg" alt=""></a>
+        <div class="card-body">
+          <h6 class="text-center">Two pis Dress</h6>
+          <div class="star text-center">
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <div class="btn"><button>Shop Now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 12 পণ্য -->
+    <div class="col-md-2 py-1 md-0">
+      <div class="card product-card">
+        <a href="shart.html"><img src="./images/sunnoti.jpg" alt=""></a>
+        <div class="card-body">
+          <h6 class="text-center">Sonnoti Burka</h6>
+          <div class="star text-center">
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <div class="btn"><button>Shop Now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 13 পণ্য -->
+    <div class="col-md-2 py-1 md-0">
+      <div class="card product-card">
+        <a href="shart.html"><img src="./images/burkas.jpg" alt=""></a>
+        <div class="card-body">
+          <h6 class="text-center"> Burka Hijab</h6>
+          <div class="star text-center">
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <div class="btn"><button>Shop Now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 15 পণ্য -->
+    <div class="col-md-2 py-1 md-0">
+      <div class="card product-card">
+        <a href="shart.html"><img src="./images/culple.jpg" alt=""></a>
+        <div class="card-body">
+          <h6 class="text-center">Cuple Dress</h6>
+          <div class="star text-cb Nikabenter">
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <div class="btn"><button>Shop Now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 16 পণ্য -->
+    <div class="col-md-2 py-1 md-0">
+      <div class="card product-card">
+        <a href="shart.html"><img src="./images/baby burka.jpg" alt=""></a>
+        <div class="card-body">
+          <h6 class="text-center">Baby Burka</h6>
+          <div class="star text-center">
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <div class="btn"><button>Shop Now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 17 পণ্য -->
+    <div class="col-md-2 py-1 md-0">
+      <div class="card product-card">
+        <a href="shart.html"><img src="./images/baby dress.png" alt=""></a>
+        <div class="card-body">
+          <h6 class="text-center">Baby Burka</h6>
+          <div class="star text-center">
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <div class="btn"><button>Shop Now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 18 পণ্য -->
+    <div class="col-md-2 py-1 md-0">
+      <div class="card product-card">
+        <a href="shart.html"><img src="./images/unstich.png" alt=""></a>
+        <div class="card-body">
+          <h6 class="text-center">Unstich Dress</h6>
+          <div class="star text-center">
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <div class="btn"><button>Shop Now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+    <!-- পণ্য কার্ড সেকশন শেষ -->
+
+<!-- ব্যানার সেকশন -->
+<section class="banner">
+  <div class="content"> <!-- ব্যানারের টেক্সট কন্টেন্ট -->
+    <h1> 
+      <span>Last Chance Offer</span> <!-- হেডিং -->
+      <br>
+      Up To <span id="span2">70%</span> SALE <!-- ডিসকাউন্ট তথ্য -->
+    </h1>
+    <p>Don't miss out on our BIGGEST SALE of the season!
+      <br> Get up to 70% OFF on selected products.
+    </p>
+    <div class="btn">
+      <button>Online Only</button> <!-- শপিং বাটন -->
+    </div>
+  </div>
+
+  <div class="img">
+    <img src="./images/bannar2.png" alt=""> <!-- ব্যানারের পাশে ইমেজ -->
+  </div>
+</section>
+<!-- ব্যানার সেকশন শেষ -->
+<!-- পণ্য কার্ড সেকশন -->
+<section class="product">
+  <div class="container" id="product-cards">
+    <!-- পণ্য শিরোনাম -->
+    <h1 class="text-center">Juwelry & Accessories</h1>
+   
+      <!-- 1 পণ্য -->
+      <div class="container">
+        <div class="product-container">
+            <div class="card product-card">
+                <a href="juwelry1.html"><img src="./images/1726677054_S_8.jpg" class="card-img-top" alt="Stylish Shirt"></a>
+                <div class="card-body text-center">
+                    <h6>Be Brave Single Bracelet</h6>
+                    <div class="star text-center">
+                      <i class="fa-solid fa-star checked"></i>
+                      <i class="fa-solid fa-star checked"></i>
+                      <i class="fa-solid fa-star checked"></i>
+                      <i class="fa-solid fa-star checked"></i>
+                      <i class="fa-solid fa-star checked"></i>
+                    </div>
+                    <button class="btn btn-primary btn-sm">Add to Cart</button>
+                    
+                </div>
+            </div>
+          <div class="card product-card">
+              <a href="juwelry2.html"><img src="./images/1694726237_S_9.jpg" class="card-img-top" alt="Stylish Shirt"></a>
+              <div class="card-body text-center">
+                  <h6>Luxury Colorful Butterfly Rings</h6>
+                  <div class="star text-center">
+                    <i class="fa-solid fa-star checked"></i>
+                    <i class="fa-solid fa-star checked"></i>
+                    <i class="fa-solid fa-star checked"></i>
+                    <i class="fa-solid fa-star checked"></i>
+                    <i class="fa-solid fa-star checked"></i>
+                  </div>
+                  <button class="btn btn-primary btn-sm">Add to Cart</button>
+              </div>
+          </div>
+          <div class="card product-card">
+              <a href="juwelry3.html"><img src="./images/1702098562_S_4.jpg" class="card-img-top" alt="Stylish Shirt"></a>
+              <div class="card-body text-center">
+                  <h6>Bracelets For Women</h6>
+                  <div class="star text-center">
+                    <i class="fa-solid fa-star checked"></i>
+                    <i class="fa-solid fa-star checked"></i>
+                    <i class="fa-solid fa-star checked"></i>
+                    <i class="fa-solid fa-star checked"></i>
+                    <i class="fa-solid fa-star checked"></i>
+                  </div>
+                  <button class="btn btn-primary btn-sm">Add to Cart</button>
+               </div>
+          </div>
+          <div class="card product-card">
+              <a href="juwelry4.html"><img src="./images/1720413701_S_4.jpg" class="card-img-top" alt="Stylish Shirt"></a>
+              <div class="card-body text-center">
+                  <h6>Diamond Cut Bracelet</h6>
+                  <div class="star text-center">
+                    <i class="fa-solid fa-star checked"></i>
+                    <i class="fa-solid fa-star checked"></i>
+                    <i class="fa-solid fa-star checked"></i>
+                    <i class="fa-solid fa-star checked"></i>
+                    <i class="fa-solid fa-star checked"></i>
+                  </div>
+                  <button class="btn btn-primary btn-sm">Add to Cart</button>
+               </div>
+          </div>
+          <div class="card product-card">
+              <a href="juwelry5.html"><img src="./images/1702100466_S_1.jpg" class="card-img-top" alt="Stylish Shirt"></a>
+              <div class="card-body text-center">
+                  <h6>Cute Carton Bracelet</h6>
+                  <div class="star text-center">
+                    <i class="fa-solid fa-star checked"></i>
+                    <i class="fa-solid fa-star checked"></i>
+                    <i class="fa-solid fa-star checked"></i>
+                    <i class="fa-solid fa-star checked"></i>
+                    <i class="fa-solid fa-star checked"></i>
+                  </div>
+                  <button class="btn btn-primary btn-sm">Add to Cart</button>
+                  
+              </div>
+          </div>
+        <div class="card product-card">
+            <a href="juwelry6.html"><img src="./images/1698091824_S_1.jpg" class="card-img-top" alt="Stylish Shirt"></a>
+            <div class="card-body text-center">
+                <h6>Pearl Stone Bracelet</h6>
+                <div class="star text-center">
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                  <i class="fa-solid fa-star checked"></i>
+                </div>
+                <button class="btn btn-primary btn-sm">Add to Cart</button>
+            </div>
+        </div>
+        <div class="card product-card">
+          <a href="juwelry7.html"><img src="./images/1714314027_S_8.jpg" class="card-img-top" alt="Stylish Shirt"></a>
+          <div class="card-body text-center">
+              <h6>Sunflower & T Style Wallet</h6>
+              <div class="star text-center">
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+                <i class="fa-solid fa-star checked"></i>
+              </div>
+              <button class="btn btn-primary btn-sm">Add to Cart</button>
+          </div>
+      </div>
+      <div class="card product-card">
+        <a href="juwelry8.html"><img src="./images/1717484081_S_3.jpg" class="card-img-top" alt="Stylish Shirt"></a>
+        <div class="card-body text-center">
+            <h6>Leather Women's Wallet</h6>
+            <div class="star text-center">
+              <i class="fa-solid fa-star checked"></i>
+              <i class="fa-solid fa-star checked"></i>
+              <i class="fa-solid fa-star checked"></i>
+              <i class="fa-solid fa-star checked"></i>
+              <i class="fa-solid fa-star checked"></i>
+            </div>
+            <button class="btn btn-primary btn-sm">Add to Cart</button>
+        </div>
+    </div>
+    <div class="card product-card">
+      <a href="juwelry6.html"><img src="./images/1714313350_S_3.jpg" class="card-img-top" alt="Stylish Shirt"></a>
+      <div class="card-body text-center">
+          <h6>Crossbody Bag Leather Korean</h6>
+          <div class="star text-center">
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+            <i class="fa-solid fa-star checked"></i>
+          </div>
+          <button class="btn btn-primary btn-sm">Add to Cart</button>
+      </div>
+  </div>
+  <div class="card product-card">
+    <a href="juwelry6.html"><img src="./images/1739293174_S_4.jpg" class="card-img-top" alt="Stylish Shirt"></a>
+    <div class="card-body text-center">
+        <h6>Women's Nylon Cloth backpack</h6>
+        <div class="star text-center">
+          <i class="fa-solid fa-star checked"></i>
+          <i class="fa-solid fa-star checked"></i>
+          <i class="fa-solid fa-star checked"></i>
+          <i class="fa-solid fa-star checked"></i>
+          <i class="fa-solid fa-star checked"></i>
+        </div>
+        <button class="btn btn-primary btn-sm">Add to Cart</button>
+    </div>
+</div>
+</div>
+  </div>
+
+
+
+ <!-- offer -->
+ 
+    <div class="container" id="offer">
+      <h1 class="text-center">Delibary System</h1>
+      <div class="row">
+        <div class="col-md-3 py-3 py-md-0">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <h3>Free Shipping</h3>
+          <p>On order over 5000/-Tk</p>
+        </div>
+        <div class="col-md-3 py-3 py-md-0">
+          <i class="fa-solid fa-rotate-left"></i>
+          <h3>Free Returns</h3>
+          <p>Within 7 days</p>
+        </div>
+        <div class="col-md-3 py-3 py-md-0">
+          <i class="fa-solid fa-truck"></i>
+          <h3>Fast Delivery</h3>
+          <p>All Bangladesh</p>
+        </div>
+        <div class="col-md-3 py-3 py-md-0">
+          <i class="fa-solid fa-thumbs-up"></i>
+          <h3>Big choice</h3>
+          <p>Of products</p>
+        </div>
+      </div>
+    </div>
+    <!-- offer -->
+     <!-- newslater -->
+    <div class="container" id="newslater">
+      <h3>Subscribe To The Koly's Shop For Latest Upload.</h3>
+      <div class="input">
+        <input type="email" id="email" placeholder="Enter Your Email.." required>
+        <button id="subscribe">SUBSCRIBE</button>
+      </div>
+    </div>
+    <!-- newslater -->
+
+
+    <!-- footer -->
+    <footer id="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+
+            <div class="col-lg-3 col-md-6 footer-contact">
+              <h3>Koly's Shop</h3>
+              <p>
+                <p>**"Koly's Shop – Your Trusted Destination for Trendy & Stylish Fashion! 👗✨"**</p><br><br>
+                Sylhet <br>
+                Moulvibazar <br>
+               Barlekha <br>
+              </p>
+              <strong>Phone:</strong> +8801868493797 <br>
+              <strong>Email:</strong> kolyrahman84@gmail.com.com <br>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-links">
+              <h4>Usefull Links</h4>
+             <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Services</a></li>
+              <li><a href="#">Terms of service</a></li>
+              <li><a href="#">Privacy policey</a></li>
+             </ul>
+            </div>
+          
+            <div class="col-lg-3 col-md-6 footer-links">
+              <h4>Our Services</h4>
+              <ul>
+                <li><a href=" index.html">Men's Clothing</a></li>
+                <li><a href=" index.html">Juwelry & Accessories</a></li>
+                <li><a href=" index.html">Winter Collection</a></li>
+                <li><a href=" index.html">Bag Collection</a></li>
+                <li><a href=" index.html">Kids' Items</a></li>
+                <li><a href=" index.html">Electronics Items</a></li>
+                <li><a href=" index.html">Toys</a></li>
+                <li><a href=" index.html">Home & Decor</a></li>
+             </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6 footer-links">
+              <h4>Our Social Networks</h4>
+              <p>**"Contact Us – We're Here to Help!"**.</p>
+
+              <div class="socail-links mt-3">
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                <a href="https://www.facebook.com/koly.rahman.589?mibextid=9R9pXO"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://instagram.com/nnilema?igshid=MTJ3Z2IzYnZkMzYydQ=="><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://join.skype.com/invite/uM9nhDfuT6MD"><i class="fa-brands fa-skype"></i></a>
+                <a href="https://www.linkedin.com/in/koly-begum-246355356"><i class="fa-brands fa-linkedin"></i></a>
+              </div>
+            
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="container py-4">
+        <div class="copyright">
+          &copy; Copyright <strong><span>Koly's Shop</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+          Designed by <a href="#">KOLY</a>
+        </div>
+      </div>
+    </footer>
+    <!-- footer -->
+ <a href="#" class="arrow"><i><img src="./images/arrow.png" alt=""></i></a>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<!-- আপনার HTML কোডের শেষে -->
+<script src="script.js"></script>
+ <!-- সঠিক পাথ নিশ্চিত করুন -->
+</body>
+</html>
